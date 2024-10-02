@@ -29,13 +29,27 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'base/assets/css/main.css'%}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Append
-  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+ <style>
+  #audioMessagePic:hover {
+    width: 60px;
+    height: 60px;
+
+  }
+
+  .btn-get-started {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 8px 30px;
+    border-radius: 4px;
+}
+.btn-get-started:hover {
+  color:var(--accent-color);
+  background-color: var(--contrast-color)
+}
+
+
+ 
+ </style>
 </head>
 
 <body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu">
@@ -46,19 +60,19 @@
 
       <!--<a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">-->
         <!-- Uncomment the line below if you also wish to use an image logo -->
-         <img src="{% static 'base/assets/img/Bimg/BHUSF LOGO.png'%}" alt="" height="60px" width="auto">
-        <img src="C:\Users\DOBUY GADGETS\Downloads\imageedit_2_8599255544.png'%}" alt="">
-        <h1 style="font-size: 20px;">BINGHAM UNIVERSITY STUDENTS FELLOWSHIP (BHUSF)</h1>
-      </a>
+         <img src="{% static 'base/assets/img/Bimg/BHUSFLOGO.png'  %}" alt="" height="45px" width="auto">
+         <h1 style="font-size: 20px;">Bingham University Students Fellowship (BHUSF) </h1>
+        </a>
 
       <!-- Nav Menu -->
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about-us">About Us</a></li>
-          <li><a href="#faq">BHUSF Messages</a></li>
-          <li><a href="#recent-posts">Events</a></li>
-          <li><a href="#team">Executives</a></li>
+          <li><a href="#messages">Messages</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#testimonies">Testimonies</a></li>
+          <li><a href="#executives">Executives</a></li>
           
           
           <!-- <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
@@ -97,50 +111,17 @@
       <div class="container" >
         <div class="row">
           <div class="col-lg-10">
-            <h2 data-aos="fade-up" data-aos-delay="100" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">This is BHUSF</h2>
+            <h2 data-aos="fade-up" data-aos-delay="100" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Welcome to Students Fellowship</h2>
             
           </div>
-          <!-- <div class="col-lg-5"> -->
-            <!-- <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300"> -->
-              <!-- <input type="text" class="form-control" placeholder="Enter email address"> -->
-              <!-- <input type="submit" class="btn btn-primary" value="Sign up"> -->
-            <!-- </form> -->
+       
           </div>
         </div>
       </div>
 
     </section><!-- End Hero Section -->
 
-    <!-- Clients Section - Home Page -->
-    <!-- <section id="clients" class="clients"> -->
-
-      <!-- <div class="container-fluid" data-aos="fade-up"> -->
-
-        <!-- <div class="row gy-4"> -->
-
-          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo"> -->
-            <!-- <img src="assets/img/clients/client-1.png'%}" class="img-fluid" alt=""> -->
-          </div><!-- End Client Item -->
-
-          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo"> -->
-            <!-- <img src="assets/img/clients/client-2.png'%}" class="img-fluid" alt=""> -->
-          </div><!-- End Client Item -->
-
-          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo"> -->
-            <!-- <img src="assets/img/clients/client-3.png'%}" class="img-fluid" alt=""> -->
-          </div><!-- End Client Item -->
-
-          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo"> -->
-            <!-- <img src="assets/img/clients/client-4.png'%}" class="img-fluid" alt=""> -->
-          </div><!-- End Client Item -->
-
-          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo"> -->
-            <!-- <img src="assets/img/clients/client-5.png'%}" class="img-fluid" alt=""> -->
-          </div><!-- End Client Item -->
-
-          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo"> -->
-            <!-- <img src="assets/img/clients/client-6.png'%}" class="img-fluid" alt=""> -->
-          </div><!-- End Client Item -->
+   
 
         </div>
 
@@ -215,14 +196,14 @@
           <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
             <h3>{{event1.name}}</h3>
             <p>
-              {{event1.description}}
+              {{event1.description|safe}}
             </p>
             
           </div>
           <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
             
               <a href="{%url 'eventDetails' event1.slug%}" >
-              <img src="{{event1.image.url}}" alt="" class="stack-front" width="80%">
+              <img src="{{event1.image.url}}" alt="" class="img-fluid">
               </a>
               
             </div>
@@ -235,89 +216,9 @@
 
     </section><!-- End Features Section -->
 
-    <!-- Featured images Section - Home Page -->
-    <section id="portfolio" class="portfolio">
-
-      <!--there will be featured images in this section. Add a db table for featured images and have isActive field
-      also animate the pics. Find how to make em fade and change. Should be the last thing i do-->
-      <!--  Section Title -->
-
-    <!-- Pricing Section - Home Page -->
-    <!-- <section id="pricing" class="pricing"> -->
-
-      <!--  Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up"> -->
-        <!-- <h2>Pricing</h2> -->
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End Section Title -->
-
-      <!-- <div class="container" data-aos="zoom-in" data-aos-delay="100"> -->
-
-        <!-- <div class="row g-4"> -->
-
-          <!-- <div class="col-lg-4"> -->
-            <!-- <div class="pricing-item"> -->
-              <!-- <h3>Free Plan</h3> -->
-              <!-- <div class="icon"> -->
-                <!-- <i class="bi bi-box"></i> -->
-              <!-- </div> -->
-              <!-- <h4><sup>$</sup>0<span> / month</span></h4> -->
-              <!-- <ul> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li> -->
-                <!-- <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li> -->
-                <!-- <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
-              <!-- </ul> -->
-              <!-- <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div> -->
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <!-- <div class="col-lg-4"> -->
-            <!-- <div class="pricing-item featured"> -->
-              <!-- <h3>Business Plan</h3> -->
-              <!-- <div class="icon"> -->
-                <!-- <i class="bi bi-rocket"></i> -->
-              <!-- </div> -->
-
-              <!-- <h4><sup>$</sup>29<span> / month</span></h4> -->
-              <!-- <ul> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
-              <!-- </ul> -->
-              <!-- <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div> -->
-            <!-- </div> -->
-          <!-- </div>End Pricing Item -->
-
-          <!-- <div class="col-lg-4"> -->
-            <!-- <div class="pricing-item"> -->
-              <!-- <h3>Developer Plan</h3> -->
-              <!-- <div class="icon"> -->
-                <!-- <i class="bi bi-send"></i> -->
-              <!-- </div> -->
-              <!-- <h4><sup>$</sup>49<span> / month</span></h4> -->
-              <!-- <ul> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li> -->
-                <!-- <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
-              <!-- </ul> -->
-              <!-- <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div> -->
-            <!-- </div> -->
-          </div><!-- End Pricing Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- End Pricing Section -->
-
+  
     <!-- Faq Section - Home Page -->
-    <section id="faq" class="faq">
+    <section id="messages" class="faq">
 
       <div class="container">
 
@@ -327,25 +228,19 @@
             <div class="content px-xl-5">
               <h3><span> BHUSF </span><strong>Messages</strong></h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Audio Messages of BHUSF is available for download and to listen online. Every message is rich and edifying in the word and will certainly bless you.
               </p>
+              <br>
+              <a href="{%url 'messages'%}" class="btn btn-get-started" >View All</a>
             </div>
           </div>
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-            <a href="{%url 'messages'%}">
-              <img src="{%static 'base/assets/img/Bimg/messge.jpg'%}" width="60%">
+          <div  class="col-lg-8 grow" data-aos="fade-up" data-aos-delay="200">
+            <a  href="{%url 'messages'%}">
+              <img src="{{ messagepic.image.url }}" class="img-fluid">
             </a>
             
-              
-
-            
-
-              <!--<a href="#" class="btn btn-get-started" style="background-color: var(--accent-color);
-              color: var(--contrast-color);
-              padding: 8px 30px 10px 30px;
-              border-radius: 4px;">View All</a>-->
-
+      
             </div>
 
           </div>
@@ -355,7 +250,7 @@
 
     </section><!-- End Faq Section -->
 
-    <section id="recent-posts" class="recent-posts">
+    <section id="events" class="recent-posts">
 
       <!--  Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -370,19 +265,15 @@
           {% for event in events %}
           <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <article>
-
               <div class="post-img">
                 <a href="{%url 'eventDetails' event.slug %}">
                 <img src="{{event.image.url}}" alt="" class="img-fluid">
                 </a>
               </div>
-
               <h2 class="title">
                 {{event.name}}
               </h2>
-
               <div class="d-flex align-items-center">
-                
                 <div class="post-meta">
                   <p class="post-author">{{event.subdescription}}</p>
                   <p class="post-date">
@@ -390,154 +281,64 @@
                   </p>
                 </div>
               </div>
-
             </article>
           </div><!-- End post list item -->
-
-          
           {%endfor%}
 
-          
 
           
 
+          <div style=" ">
+            <a href="{% url 'events' %}" class="btn btn-get-started"  style="float:right">View All</a>
+          </div>
+          
+
         </div>
-        <div style="margin: 0px; padding: 0px; align-content: center; justify-content: center;">
-          <a href="{% url 'events' %}" class="btn btn-get-started" style="background-color: var(--accent-color);
-              color: var(--contrast-color);
-              padding: 8px 30px 10px 30px;
-              border-radius: 4px;
-              max-width: 200px;">View All</a>
-        </div>
+    
         
-
-
+<br><br><br>
 
     <!-- Team Section - Home Page -->
-    <section id="team" class="team">
+    <section id="executives" class="team">
 
       <!--  Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>BHUSF Executives</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>For the practical administration of the BHUSF, the structure of the BHUSF shall consist of the following</p>
       </div><!-- End Section Title -->
 
+             
       <div class="container">
+        <div class="row justify-content-center">
+      {% for exec in execs %}
 
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="{% static 'base/assets/img/team/team-1.jpg'%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <!--<a href="#"><i class="bi bi-facebook"></i></a>-->
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4"> <!-- Use smaller columns for responsiveness -->
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <!-- <img src="{{exec.image.url}}" class="img-fluid" alt="" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem;"> -->
+                <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; margin: 0 auto;"> <!-- Circle container -->
+                  <img src="{{exec.image.url}}" class="img-fluid" alt="" style="width: 100%; height: 100%; object-fit: cover;"> <!-- Image fills the circle -->
               </div>
+                <h4 class="card-title mt-3">{{exec.fullName}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{exec.portfolio}}</h6>
+                <p class="card-text">{{exec.description}}</p>
             </div>
-            <div class="member-info text-center">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <p>Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio dire flow</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
-            <div class="member-img">
-              <img src="{% static 'base/assets/img/team/team-2.jpg'%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Sarah Jhonson</h4>
-              <span>Product Manager</span>
-              <p>Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores exercitationem ut</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
-            <div class="member-img">
-              <img src="{% static 'base/assets/img/team/team-3.jpg'%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <p>Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque sed facilis at qui</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
-            <div class="member-img">
-              <img src="{% static 'base/assets/img/team/team-4.jpg'%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <p>Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi quam consectetur</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
-            <div class="member-img">
-              <img src="{% static 'base/assets/img/team/team-5.jpg'%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Brian Doe</h4>
-              <span>Marketing</span>
-              <p>Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia impedit laborum velit</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
-            <div class="member-img">
-              <img src="{% static 'base/assets/img/team/team-6.jpg'%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Josepha Palas</h4>
-              <span>Operation</span>
-              <p>Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi cupiditate vel</p>
-            </div>
-          </div><!-- End Team Member -->
-
         </div>
+    </div>
+            {%endfor%}
+        </div>
+    </div>
+    
+      
+    
 
-      </div>
 
     </section><!-- End Team Section -->
 
    
 
     <!-- Testimonials Section - Home Page -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonies" class="testimonials">
 
       <div class="container">
 
@@ -545,10 +346,10 @@
 
           <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
             <h3>Testimonies</h3>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+            <p style="color: #b47c7c;">
+            And they overcame him by the blood of the Lamb, and by the word of their testimony;
             </p>
+            <p>Read through what the Lord has been doing in the fellowship.</p>
           </div>
           
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
@@ -567,13 +368,12 @@
                     "type": "bullets",
                     "clickable": true
                   }
-                }
+                }  
               </script>
               <div class="swiper-wrapper">
 
                 {% for test in tests %}
                 <div class="swiper-slide">
-                  <a href="{% url 'testimonies' %}">
                   <div class="testimonial-item">
                     <div class="d-flex">
                       <div>
@@ -589,7 +389,6 @@
                     </p>
                   </div>
                 </div><!-- End testimonial item -->
-              </a>
                 {%endfor%}
 
               </div>
@@ -625,22 +424,22 @@
       <!--  Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Feel free to reach out to the fellowship for a need or any enquiry</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
-          <div class="col-lg-6" style="display: inline;">
+          <div  style="display: inline;">
 
             <div class="row gy-4" style="display: flex; flex-direction: row;">
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <p>Bingham University,</p>
+                  <p>Chapel Auditorium Basement.</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -648,8 +447,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                   <i class="bi bi-telephone"></i>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
+                  <p>+234 814 513 7313</p>
+                  <p>+234 810 681 4231</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -657,7 +456,7 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                   <i class="bi bi-telegram"></i>
                   <h3>Find us on telegram</h3>
-                  <a href="">@bhusf</a>
+                  <a target="_blank" href="https://t.me/+f4CoVbNPsvEzNjhk">@bhusf</a>
                 </div>
               </div><!-- End Info Item -->
 
@@ -666,11 +465,10 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                   <i class="bi bi-instagram"></i>
                   <h3>Follow us on instagram</h3>
-                  <a href="" >@_bhusf</a>
+                  <a  target="_blank" href="https://www.instagram.com/_bhusf/">@_bhusf</a>
                 </div>
               </div><!-- End Info Item -->
 
-              <img src="{%static 'base/assets/img/praise.JPG'%}">
 
               
             </div>
@@ -694,60 +492,41 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Append</span>
+            <span>BHUSF</span>
           </a>
              <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a> -->
+            <a href="https://www.instagram.com/_bhusf/"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#messages">Messages</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#testimonies">Testimonies</a></li>
+            <li><a href="#executives">Executives</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
+          <h4>Our Worship Days(Every Week)</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li>Wednesday 6:30PM</li>
+            <li>Friday 6:30PM</li>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
-        </div>
+     
 
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>&copy; <span>Copyright</span> <strong class="px-1">Append</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
+  
 
   </footer><!-- End Footer -->
 
@@ -755,12 +534,12 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  <div id="preloader">
+  <!-- <div id="preloader">
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-  </div>
+  </div> -->
 
   <!-- Vendor JS Files -->
   <script src="{% static 'base/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>

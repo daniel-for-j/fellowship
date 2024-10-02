@@ -59,11 +59,11 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="{% url 'index'%}" class="active">Home</a></li>
-            <li><a href="{% url 'about'%}">About Us</a></li>
-            <li><a href="{% url 'messages'%}">BHUSF Messages</a></li>
+            <li><a href="{% url 'about'%}/#about">About Us</a></li>
+            <li><a href="{% url 'messages'%}/#messages">BHUSF Messages</a></li>
       
-            <li><a href="{% url 'index'%}">Executives</a></li>
-            <li><a href="{% url 'events'%}" class="active">Events</a></li>
+            <li><a href="{% url 'index'%}/#executives">Executives</a></li>
+            <li><a href="{% url 'events'%}/#events" class="active">Events</a></li>
           </ul>
             
             <!-- <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
@@ -123,30 +123,37 @@
           
 
           <div class="row gy-4 posts-list">
+           
             {% for message in messages %}
             <div class="col-xl-4 col-lg-6">
               <article>
+                <p class="post-category">{{message.name}}</p>
                 
                 
 
                 <h2 class="title">
 
-                  <audio controls style="border-radius: 0px;">
-                    <source src="{{message.audio.url}}"
+                  <!-- <audio controls style="border-radius: 0px;">
+                    <source src=""
                     type="audio/wav">
+                  </audio> -->
+                  <audio controls class="w-100">
+                    <source src="{{message.audio.url}}" type="audio/mpeg">
+                    Your browser does not support the audio element.
                   </audio>
                 </h2>
 
-                <div class="d-flex align-items-center">
+      
                   
-                  <div class="post-meta">
-                
-                    <p class="post-category">{{message.name}}</p>
-                  </div>
-                </div>
+                    <p  style="float: right;" class="post-category">{{message.by}}</p>
+
+             
               </article>
             </div>
             {%endfor%}
+
+
+            
             <!-- End post list item -->
 
             
@@ -166,79 +173,50 @@
       <!-- End Blog Section -->
     </main>
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-      <div class="container footer-top">
-        <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span>Append</span>
-            </a>
-            <p>
-              Cras fermentum odio eu feugiat lide par naso tierra. Justo eget
-              nada terra videa magna derita valies darta donna mare fermentum
-              iaculis eu non diam phasellus.
-            </p>
-            <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
+   <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
 
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div
-            class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
-          >
-            <h4>Contact Us</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p>United States</p>
-            <p class="mt-4">
-              <strong>Phone:</strong> <span>+1 5589 55488 55</span>
-            </p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span>BHUSF</span>
+          </a>
+             <div class="social-links d-flex mt-4">
+            <!-- <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a> -->
+            <a href="https://www.instagram.com/_bhusf/"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
-      </div>
 
-      <div class="container copyright text-center mt-4">
-        <p>
-          &copy; <span>Copyright</span> <strong class="px-1">Append</strong>
-          <span>All Rights Reserved</span>
-        </p>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#messages">Messages</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#testimonies">Testimonies</a></li>
+            <li><a href="#executives">Executives</a></li>
+          </ul>
         </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Worship Days(Every Week)</h4>
+          <ul>
+            <li>Wednesday 6:30PM</li>
+            <li>Friday 6:30PM</li>
+          </ul>
+        </div>
+
+     
+
       </div>
-    </footer>
-    <!-- End Footer -->
+    </div>
+
+  
+
+  </footer><!-- End Footer -->
 
     <!-- Scroll Top Button -->
     <a

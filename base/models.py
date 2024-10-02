@@ -23,14 +23,14 @@ class Executive(models.Model):
         verbose_name_plural= 'Executives'
 
 class Testimony(models.Model):
-    title = models.TextField(null=True, blank=True)
-    testimony = RichTextUploadingField()
+    title = models.CharField(max_length=100, null=True)
+    testimony = models.TextField(null=True, blank=True)
     testifier = models.CharField(max_length=100)
     date = models.DateField()
     slug = models.SlugField(null=True, blank=True)
 
     def __str__(self):
-        return self.testimony
+        return self.title
     
     
 
@@ -84,17 +84,23 @@ class Event(models.Model):
 
 class audioMessage(models.Model):
     name = models.CharField(max_length=255)
+    by = models.CharField(max_length=255,default="")
     audio = models.FileField(upload_to='images')
     internal = models.BooleanField(default= False)
     external = models.BooleanField(default=False)
     eventMessages = models.BooleanField(default=False)
     class Meta:
         ordering = ['-id']
+        
+    def __str__(self):
+        return self.name
 
 class picture(models.Model):
     image = models.ImageField(upload_to='images')
     date = models.DateTimeField(default=datetime.now)
     isFeatured = models.BooleanField(default=False)
     isWallpaper = models.BooleanField(default=False)
+    isMessagesThumbnail = models.BooleanField(default=False)
+
 
 # Create your models here.
