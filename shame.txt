@@ -1,8 +1,0 @@
-OperationalError at /admin/base/testimony/add/
-no such table: base_testimony
-
-fix: i had to add the app name when migrating. 'python manage.py makemigrations base' 'python manage.py migrate base'
-
-
--couldn't make bg images with admin so i used [image var].[class attribute var].url   so it was bg.image.url
-look at the views and the models and it'll make sense
